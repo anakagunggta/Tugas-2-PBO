@@ -1,23 +1,30 @@
-package Soal2;
+package com.company;
+
+import java.util.ArrayList;
 
 public class Main {
-    public static void main(String[]args) {
-        GameCharacter pemain1 = new GameCharacter("Raiden",10,20);
-        GameCharacter pemain2 = new GameCharacter("Sub-Zero",5,25);
-        pemain1.kick(pemain2);
-        pemain2.kick(pemain1);
 
-        for (int i=0;i<3;i++){
-            pemain2.hit(pemain1);
+    public static void main(String[] args) {
+        ArrayList<Buku> Buku = new ArrayList<Buku>();
+
+        Buku.add(new Buku("1811","Harry Potter","2013","J.K Rowling",500000,1));
+        Buku.add(new Buku("2603","After","2019","Jenny Cage",250000,2));
+        Buku.add(new Buku("0903","Alita","2021","Rosa Salazar",120000,3));
+
+        Buku.get(0).setjudulbuku("Harry Potter");
+        Buku.get(0).settahunterbit("2013");
+        Buku.get(0).setPrice(500000);
+        Buku.get(0).setRating(1);
+
+        for (Buku buku:Buku){
+            buku.searchisbn("1811");
         }
 
-        for (int i=0;i<4;i++){
-            pemain1.kick(pemain2);
+        Buku.remove(0);
+
+        for (Buku buku:Buku){
+            System.out.println(buku);
+
         }
-
-        System.out.println("Raiden = "+pemain1.getLifepoint());
-        System.out.println("Sub-Zero = "+pemain2.getLifepoint());
-
-        pemain1.compare(pemain2);
     }
 }
